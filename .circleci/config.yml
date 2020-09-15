@@ -6,13 +6,6 @@ install_hex_rebar: &install_hex_rebar
     command: |
       mix local.hex --force
       mix local.rebar --force
-install_ghr: &install_ghr
-  run:
-    name: Install ghr (Github Releases)
-    command: |
-      wget https://github.com/tcnksm/ghr/releases/download/v0.9.0/ghr_v0.9.0_linux_amd64.tar.gz
-      tar xf ghr_v0.9.0_linux_amd64.tar.gz
-      ln -sf ghr_v0.9.0_linux_amd64/ghr .
 
 jobs:
   build:
@@ -32,85 +25,31 @@ jobs:
           name: "OTP_VERSION.lock"
           command: echo "${OTP_VERSION}" > OTP_VERSION.lock
 
-      # uncharted
-      - restore_cache:
-          keys:
-            - v2-mix-compile-{{ checksum "OTP_VERSION.lock" }}-{{ checksum "ELIXIR_VERSION.lock" }}-{{ checksum "uncharted/mix.lock" }}
-            - v2-mix-compile-{{ checksum "OTP_VERSION.lock" }}-{{ checksum "ELIXIR_VERSION.lock" }}
-      - run:
-          name: Compile uncharted
-          command: mix do deps.get, compile
-          working_directory: ~/project/uncharted
-      - save_cache:
-          key: v2-mix-compile-{{ checksum "OTP_VERSION.lock" }}-{{ checksum "ELIXIR_VERSION.lock" }}-{{ checksum "uncharted/mix.lock" }}
-          paths:
-            - uncharted/deps
-            - uncharted/_build
-      - save_cache:
-          key: v2-mix-compile-{{ checksum "OTP_VERSION.lock" }}-{{ checksum "ELIXIR_VERSION.lock" }}
-          paths:
-            - uncharted/deps
-            - uncharted/_build
-
-      # uncharted_phoenix
-      - restore_cache:
-          keys:
-            - v2-mix-compile-{{ checksum "OTP_VERSION.lock" }}-{{ checksum "ELIXIR_VERSION.lock" }}-{{ checksum "uncharted_phoenix/mix.lock" }}
-            - v2-mix-compile-{{ checksum "OTP_VERSION.lock" }}-{{ checksum "ELIXIR_VERSION.lock" }}
-      - run:
-          name: compile uncharted_phoenix
-          command: mix do deps.get, compile
-          working_directory: ~/project/uncharted_phoenix
-      - save_cache:
-          key: v2-mix-compile-{{ checksum "OTP_VERSION.lock" }}-{{ checksum "ELIXIR_VERSION.lock" }}-{{ checksum "uncharted_phoenix/mix.lock" }}
-          paths:
-            - uncharted_phoenix/deps
-            - uncharted_phoenix/_build
-      - save_cache:
-          key: v2-mix-compile-{{ checksum "OTP_VERSION.lock" }}-{{ checksum "ELIXIR_VERSION.lock" }}
-          paths:
-            - uncharted_phoenix/deps
-            - uncharted_phoenix/_build
-
       # demo
       - restore_cache:
           keys:
-            - v2-mix-compile-{{ checksum "OTP_VERSION.lock" }}-{{ checksum "ELIXIR_VERSION.lock" }}-{{ checksum "demo/mix.lock" }}
+            - v2-mix-compile-{{ checksum "OTP_VERSION.lock" }}-{{ checksum "ELIXIR_VERSION.lock" }}-{{ checksum "mix.lock" }}
             - v2-mix-compile-{{ checksum "OTP_VERSION.lock" }}-{{ checksum "ELIXIR_VERSION.lock" }}
       - run:
           name: compile demo
           command: mix do deps.get, compile
-          working_directory: ~/project/demo
       - save_cache:
-          key: v2-mix-compile-{{ checksum "OTP_VERSION.lock" }}-{{ checksum "ELIXIR_VERSION.lock" }}-{{ checksum "demo/mix.lock" }}
+          key: v2-mix-compile-{{ checksum "OTP_VERSION.lock" }}-{{ checksum "ELIXIR_VERSION.lock" }}-{{ checksum "mix.lock" }}
           paths:
-            - demo/deps
-            - demo/_build
+            - deps
+            - _build
       - save_cache:
           key: v2-mix-compile-{{ checksum "OTP_VERSION.lock" }}-{{ checksum "ELIXIR_VERSION.lock" }}
           paths:
-            - demo/deps
-            - demo/_build
+            - deps
+            - _build
 
       - persist_to_workspace:
-          root: .
+          root: ~/
           paths:
-            - .circleci
-            - .dialyzer-ignore.exs
-            - .git
-            - .gitignore
-            - ELIXIR_VERSION.lock
-            - OTP_VERSION.lock
-            - uncharted
-            - uncharted_phoenix
-            - demo
-            - VERSION
+            - project
 
   test:
-    parameters:
-      project_name:
-        description: "project name"
-        type: string
     docker:
       - image: circleci/elixir:1.10.4-node-browsers
         environment:
@@ -118,114 +57,93 @@ jobs:
 
     steps:
       - attach_workspace:
-          at: .
+          at: ~/
       - <<: *install_hex_rebar
 
-      # - run:
-      #    name: Start Chrome Driver
-      #    command: /usr/local/bin/chromedriver
-      #    background: true
-      # - run:
-      #     name: Create Test Database
-      #     command: mix do ecto.create, ecto.migrate
-      #     working_directory: ~/project/demo
       - run:
           name: mix test
           command: mix coveralls.html
-          working_directory: ~/project/<< parameters.project_name >>
 
       - store_artifacts:
-          path: << parameters.project_name >>/cover/excoveralls.html
+          path: cover/excoveralls.html
       - store_test_results:
-          path: << parameters.project_name >>/_build/test/junit
+          path: _build/test/junit
 
   dialyzer:
-    parameters:
-      project_name:
-        description: "project name"
-        type: string
     docker:
       - image: circleci/elixir:1.10.4-node-browsers
         environment:
           MIX_ENV: test
     steps:
       - attach_workspace:
-          at: .
+          at: ~/
       - <<: *install_hex_rebar
 
       - restore_cache:
           keys:
-            - v2-<< parameters.project_name >>-mix-dialyzer-{{ checksum "OTP_VERSION.lock" }}-{{ checksum "ELIXIR_VERSION.lock" }}-{{ checksum "<< parameters.project_name >>/mix.lock" }}
-            - v2-<< parameters.project_name >>-mix-dialyzer-{{ checksum "OTP_VERSION.lock" }}-{{ checksum "ELIXIR_VERSION.lock" }}
+            - v2-mix-dialyzer-{{ checksum "OTP_VERSION.lock" }}-{{ checksum "ELIXIR_VERSION.lock" }}-{{ checksum "mix.lock" }}
+            - v2-mix-dialyzer-{{ checksum "OTP_VERSION.lock" }}-{{ checksum "ELIXIR_VERSION.lock" }}
 
       - run:
           command: mix dialyzer --plt
-          working_directory: ~/project/<< parameters.project_name >>
           no_output_timeout: 20m
 
       - save_cache:
-          key: v2-<< parameters.project_name >>-mix-dialyzer-{{ checksum "OTP_VERSION.lock" }}-{{ checksum "ELIXIR_VERSION.lock" }}-{{ checksum "<< parameters.project_name >>/mix.lock" }}
+          key: v2-mix-dialyzer-{{ checksum "OTP_VERSION.lock" }}-{{ checksum "ELIXIR_VERSION.lock" }}-{{ checksum "mix.lock" }}
           paths:
-            - << parameters.project_name >>/priv/plts
+            - priv/plts
       - save_cache:
-          key: v2-<< parameters.project_name >>-mix-dialyzer-{{ checksum "OTP_VERSION.lock" }}-{{ checksum "ELIXIR_VERSION.lock" }}
+          key: v2-mix-dialyzer-{{ checksum "OTP_VERSION.lock" }}-{{ checksum "ELIXIR_VERSION.lock" }}
           paths:
-            - << parameters.project_name >>/priv/plts
+            - priv/plts
 
       - run:
           command: mix dialyzer --halt-exit-status
-          working_directory: ~/project/<< parameters.project_name >>
           no_output_timeout: 20m
 
   credo:
-    parameters:
-      project_name:
-        description: "project name"
-        type: string
     docker:
       - image: circleci/elixir:1.10.4-node-browsers
         environment:
           MIX_ENV: test
     steps:
       - attach_workspace:
-          at: .
+          at: ~/
       - <<: *install_hex_rebar
       - run:
           command: mix credo --strict
-          working_directory: ~/project/<< parameters.project_name >>
 
   check-formatted:
-    parameters:
-      project_name:
-        description: "project name"
-        type: string
     docker:
       - image: circleci/elixir:1.10.4-node-browsers
         environment:
           MIX_ENV: test
     steps:
       - attach_workspace:
-          at: .
+          at: ~/
       - <<: *install_hex_rebar
       - run:
           command: mix format --check-formatted
-          working_directory: ~/project/<< parameters.project_name >>
 
-  deploy_artifacts:
+  deploy-site:
     docker:
       - image: circleci/elixir:1.10.4-node-browsers
 
     steps:
       - checkout
-      - attach_workspace:
-          at: .
-      - <<: *install_ghr
+
       - run:
-          name: Build release notes
-          command: grep -Pazo "(?s)(?<=## ${CIRCLE_TAG})[^#]+" ~/project/uncharted/CHANGELOG.md | sed '/./,$!d' > ~/project/RELEASE_NOTES
+          name: Install heroku-cli
+          command: |
+            curl https://cli-assets.heroku.com/install.sh | sh
       - run:
-          name: Deploy artifacts to GitHub
-          command: ./ghr -t $GITHUB_TOKEN -u $CIRCLE_PROJECT_USERNAME -r $CIRCLE_PROJECT_REPONAME -b "$(cat ~/project/RELEASE_NOTES)" -replace $CIRCLE_TAG deploy
+          name: Deploy Release to Production
+          command: |
+            git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_PRODUCTION_APP_NAME.git master
+      - run:
+          name: Execute post install scripts
+          command: |
+            /usr/local/bin/heroku run --app $HEROKU_PRODUCTION_APP_NAME "POOL_SIZE=2 mix ecto.migrate"
 
 workflows:
   version: 2
@@ -237,110 +155,36 @@ workflows:
               only: /v.*/
 
       - check-formatted:
-          project_name: uncharted
-          name: uncharted_check_formatted
           requires:
             - build
           filters:
             tags:
               only: /v.*/
       - test:
-          project_name: uncharted
-          name: uncharted_test
           requires:
             - build
           filters:
             tags:
               only: /v.*/
       - credo:
-          project_name: uncharted
-          name: uncharted_credo
           requires:
             - build
           filters:
             tags:
               only: /v.*/
       # - dialyzer:
-      #     project_name: uncharted
-      #     name: uncharted_dialyzer
       #     requires:
-      #       - uncharted_credo
-      #       - uncharted_test
-      #       - uncharted_check_formatted
+      #       - credo
+      #       - test
+      #       - check-formatted
 
-      - check-formatted:
-          project_name: uncharted_phoenix
-          name: uncharted_phoenix_check_formatted
-          requires:
-            - build
-          filters:
-            tags:
-              only: /v.*/
-      - test:
-          project_name: uncharted_phoenix
-          name: uncharted_phoenix_test
-          requires:
-            - build
-          filters:
-            tags:
-              only: /v.*/
-      - credo:
-          project_name: uncharted_phoenix
-          name: uncharted_phoenix_credo
-          requires:
-            - build
-          filters:
-            tags:
-              only: /v.*/
-      # - dialyzer:
-      #     project_name: uncharted_phoenix
-      #     name: uncharted_phoenix_dialyzer
-      #     requires:
-      #       - uncharted_phoenix_credo
-      #       - uncharted_phoenix_test
-      #       - uncharted_phoenix_check_formatted
-
-      - check-formatted:
-          project_name: demo
-          name: demo_check_formatted
-          requires:
-            - build
-          filters:
-            tags:
-              only: /v.*/
-      - test:
-          project_name: demo
-          name: demo_test
-          requires:
-            - build
-          filters:
-            tags:
-              only: /v.*/
-      - credo:
-          project_name: demo
-          name: demo_credo
-          requires:
-            - build
-          filters:
-            tags:
-              only: /v.*/
-      # - dialyzer:
-      #     project_name: demo
-      #     name: demo_dialyzer
-      #     requires:
-      #       - demo_credo
-      #       - demo_test
-      #       - demo_check_formatted
-      - deploy_artifacts:
+      - deploy-site:
           filters:
             branches:
               ignore: /.*/
             tags:
               only: /v.*/
           requires:
-            - uncharted_check_formatted
-            - uncharted_test
-            - uncharted_credo
-            - uncharted_phoenix_check_formatted
-            - uncharted_phoenix_test
-            - uncharted_phoenix_credo
+            - check-formatted
+            - test
+            - credo
