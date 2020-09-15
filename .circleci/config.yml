@@ -145,29 +145,17 @@ workflows:
   version: 2
   primary:
     jobs:
-      - build:
-         filters:
-            tags:
-              only: /v.*/
+      - build
 
       - check-formatted:
           requires:
             - build
-          filters:
-            tags:
-              only: /v.*/
       - test:
           requires:
             - build
-          filters:
-            tags:
-              only: /v.*/
       - credo:
           requires:
             - build
-          filters:
-            tags:
-              only: /v.*/
       # - dialyzer:
       #     requires:
       #       - credo
@@ -177,9 +165,7 @@ workflows:
       - deploy-site:
           filters:
             branches:
-              ignore: /.*/
-            tags:
-              only: /v.*/
+              only: master
           requires:
             - check-formatted
             - test
