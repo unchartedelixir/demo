@@ -1,19 +1,9 @@
-# Uncharted
-A simple ***Elixir*** charting library that generates easy to customize charts.
+# Uncharted Demo
+Uncharted is a simple ***Elixir*** charting library that generates easy to customize charts.
 
-Build status: [![CircleCI](https://circleci.com/gh/spawnfest/livechart/tree/master.svg?style=svg)](https://circleci.com/gh/spawnfest/livechart/tree/master)
+This demo is a working example of each of the [Uncharted Phoenix](https://github.com/unchartedelixir/uncharted_phoenix) chart types.
 
-![Bar Chart](/demo/assets/static/images/uncharted.jpg?raw=true "Bar Chart")
-
-## Features
-- Easily generate pie charts, column charts, bar charts, progress counters, and line charts
-- Generates responsive and accessible SVGs as LiveView components
-- Provides advanced styling like gradients and rounded corners
-- Smooth animations for updating live data to the UI
-
-## Uncharted Phoenix library
-[Uncharted Phoenix](/uncharted_phoenix) is a Hex package that generates SVGs as live view components. It builds on the
-basic chart package Uncharted and adapts Uncharted charts for display as components in LiveView.
+Build status: [![CircleCI](https://circleci.com/gh/unchartedelixir/demo/tree/master.svg?style=svg)](https://circleci.com/gh/unchartedelixir/demo/tree/master)
 
 ***Charts Included***:
 - The Pie Chart
@@ -22,17 +12,15 @@ basic chart package Uncharted and adapts Uncharted charts for display as compone
 - The Line Chart
 - The Bar Chart
 
-### Demo Application
-The [Uncharted Demo](/demo) is a working example of each of the Uncharted chart components.
+![Chart Examples Image](/demo/assets/static/images/uncharted.jpg?raw=true "Bar Chart")
 
 To start the demo Phoenix server:
 
-* Install dependencies with `mix deps.get`
-* Install Node.js dependencies with `npm install` inside the assets directory
-* Start Phoenix endpoint with `mix phx.server`
+  * Install dependencies with `mix deps.get`
+  * Install Node.js dependencies with `npm install` inside the `assets` directory
+  * Start Phoenix endpoint with `mix phx.server`
 
-Now you can visit `localhost:4000` from your browser.
-
+Now you can visit [`localhost:4000`](http://localhost:4000) from your browser to see the charts.
 
 ## Contributing
 
