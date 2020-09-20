@@ -6,10 +6,11 @@ defmodule DemoWeb.PageLive do
   alias Demo.Examples.Cincy
   alias Demo.SystemData.{Memory, MemoryChart, VMEvents}
   alias Uncharted.{BaseChart, BaseDatum, Gradient}
-  alias Uncharted.Axes.{BaseAxes, MagnitudeAxis, XYAxes}
+  alias Uncharted.Axes.{BaseAxes, MagnitudeAxis, PolarAxes, XYAxes}
   alias Uncharted.BarChart
   alias Uncharted.ColumnChart
   alias Uncharted.PieChart
+  alias Uncharted.PolarChart
   alias Uncharted.ProgressChart
 
   @impl true
@@ -90,6 +91,46 @@ defmodule DemoWeb.PageLive do
       }
     }
 
+    polar_chart = %BaseChart{
+      title: "Polar Chart",
+      colors: colors,
+      dataset: %PolarChart.Dataset{
+        axes: %PolarAxes{
+          r: %MagnitudeAxis{
+            max: 20,
+            min: 0
+          },
+          t: %MagnitudeAxis{
+            max: 2 * :math.pi,
+            min: 0,
+            units: :radians
+          }
+        },
+        data: [
+          %BaseDatum{
+            name: "Point 1",
+            values: [1, 0.4 * :math.pi]
+          },
+          %BaseDatum{
+            name: "Point 2",
+            values: [5, 1.4 * :math.pi]
+          },
+          %BaseDatum{
+            name: "Point 3",
+            values: [12, 0.1 * :math.pi]
+          },
+          %BaseDatum{
+            name: "Point 4",
+            values: [4, 0 * :math.pi]
+          },
+          %BaseDatum{
+            name: "Point 5",
+            values: [18, 1.9 * :math.pi]
+          }
+        ]
+      }
+    }
+
     line_chart = %BaseChart{
       title: "Live Line Chart",
       colors: colors,
@@ -141,6 +182,7 @@ defmodule DemoWeb.PageLive do
        bar_chart: bar_chart(),
        column_chart: column_chart,
        pie_chart: pie_chart,
+       polar_chart: polar_chart,
        progress_chart: progress_chart,
        line_chart: line_chart
      )}
