@@ -3,7 +3,7 @@ defmodule Demo.SystemData.Memory do
   Pulls memory data from :erlang.memory()
   and formats for display in a Progress Chart.
   """
-  @behaviour Uncharted.DataHandler
+  @behaviour Uncharted.DataProvider
   alias Uncharted.BaseChart
   alias Uncharted.ProgressChart.Dataset
 
