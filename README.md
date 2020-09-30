@@ -12,7 +12,7 @@ Build status: [![CircleCI](https://circleci.com/gh/unchartedelixir/demo/tree/mas
 - The Line Chart
 - The Bar Chart
 
-![Chart Examples Image](/demo/assets/static/images/uncharted.jpg?raw=true "Bar Chart")
+![Chart Examples Image](/assets/static/images/uncharted.jpg?raw=true "Bar Chart")
 
 To start the demo Phoenix server:
 
