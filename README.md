@@ -1,7 +1,10 @@
 # Uncharted Demo
 Uncharted is a simple ***Elixir*** charting library that generates easy to customize charts.
 
-This demo is a working example of each of the [Uncharted Phoenix](https://github.com/unchartedelixir/uncharted_phoenix) chart types.
+This demo is a working example of each of the [Uncharted Phoenix](https://github.com/unchartedelixir/uncharted/tree/master/uncharted_phoenix) chart types. Uncharted Phoenix is a LiveView adaptation of the core [Uncharted](https://github.com/unchartedelixir/uncharted/tree/master/uncharted) package.
+
+For more information about the core library, please visit the [Uncharted HexDocs](https://hexdocs.pm/uncharted/readme.html).
+For more information about the LiveView adaptation seen in this demo, please visit the [Uncharted Phoenix HexDocs](https://hexdocs.pm/uncharted_phoenix/readme.html).
 
 Build status: [![CircleCI](https://circleci.com/gh/unchartedelixir/demo/tree/master.svg?style=svg)](https://circleci.com/gh/unchartedelixir/demo/tree/master)
 
