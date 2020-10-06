@@ -38,3 +38,36 @@ p {
   letter-spacing: 1px;
   line-height: 1;
 }
+
+a {
+  color: $color-10;
+  position: relative;
+  text-decoration: none;
+  transition: all .2s ease;
+
+  &:after {
+    content: "";
+    border-bottom: 2px solid $color-10;
+    position: absolute;
+    top: 0;
+    left: 15%;
+    transform: translateY(10px); /*X axis also possible */
+    transition: all 0.4s ease;
+    opacity: 0;
+    height: 100%;
+    width: 70%;
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: $color-6;
+    outline: none;
+
+    &:after {
+      border-color: $color-6;
+      opacity: 1;
+      transform: translateY(2px);
+    }
+  }
+}
