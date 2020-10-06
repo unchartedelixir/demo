@@ -62,7 +62,10 @@ defmodule Demo.MixProject do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
-      {:uncharted_phoenix, "~> 0.2.0"}
+      {:uncharted,
+       github: "unchartedelixir/uncharted", branch: "master", sparse: "uncharted", override: true},
+      {:uncharted_phoenix,
+       github: "unchartedelixir/uncharted", branch: "master", sparse: "uncharted_phoenix"}
     ]
   end
 
