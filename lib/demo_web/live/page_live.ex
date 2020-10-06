@@ -9,6 +9,7 @@ defmodule DemoWeb.PageLive do
   alias Uncharted.Axes.{BaseAxes, MagnitudeAxis, XYAxes}
   alias Uncharted.BarChart
   alias Uncharted.ColumnChart
+  alias Uncharted.LineChart
   alias Uncharted.PieChart
   alias Uncharted.ProgressChart
 
@@ -93,7 +94,7 @@ defmodule DemoWeb.PageLive do
     line_chart = %BaseChart{
       title: "Live Line Chart",
       colors: colors,
-      dataset: %ColumnChart.Dataset{
+      dataset: %LineChart.Dataset{
         axes: %XYAxes{
           x: %MagnitudeAxis{
             max: 700,
