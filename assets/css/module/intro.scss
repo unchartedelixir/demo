@@ -1,0 +1,12 @@
+.intro {
+  max-width: 800px;
+  margin: auto;
+
+  &__links {
+    display: flex;
+      gap: $pad;
+      justify-content: center;
+      flex-wrap: wrap;
+    margin-top: $pad;
+  }
+}
