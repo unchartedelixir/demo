@@ -1,0 +1,11 @@
+<header class="header">
+  <h2>the pie chart</h2>
+  <div class="intro">
+  </div>
+</header>
+<section class="card__grid-1">
+  <div class="card">
+    <h3 class="u-center u-push-bottom"><%= Uncharted.Chart.title(@pie_chart) %><br /><span class="caption">the pie chart</span></h3>
+    <%= live_component @socket, UnchartedPhoenix.LivePieComponent, chart: @pie_chart %>
+  </div>
+</section>
