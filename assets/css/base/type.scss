@@ -1,41 +1,45 @@
 body {
-  font-size: 14px;
   font-family: $font-prime;
+  font-size: 14px;
 }
 
 h1 {
   @include fluid-type(3em, 9em);
-  font-weight: 100;
   background: -webkit-linear-gradient($color-5, $color-6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: $pad-lg;
+  font-weight: 100;
   line-height: 1;
 
   span.ex {
     @include fluid-type(0.1em, 0.2em);
-    vertical-align: middle;
-    font-weight: 400;
     background: -webkit-linear-gradient($color-8, $color-8, $color-7);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    font-weight: 400;
     line-height: 0;
+    vertical-align: middle;
   }
 }
 
 h2 {
   @include fluid-type(1em, 1.2em);
-  letter-spacing: 5px;
   font-weight: 200;
+  letter-spacing: 5px;
 }
 
 h3 {
   @include fluid-type(0.9em, 1em);
+  margin-bottom: $pad;
   font-weight: 400;
   letter-spacing: 2px;
+  line-height: 1.5;
 }
 
 p {
+  @include fluid-type(1em, 1.2em);
+  font-weight: 300;
   letter-spacing: 1.5px;
   line-height: 1.75;
 }
@@ -47,35 +51,36 @@ p {
 }
 
 a {
+  @include fluid-type(1em, 1.1em);
+  position: relative;
   color: $color-10;
   font-weight: 600;
-  position: relative;
   text-decoration: none;
   transition: all .2s ease;
 
   &:after {
-    content: "";
-    border-bottom: 2px solid $color-10;
     position: absolute;
     top: 0;
     left: 15%;
-    transform: translateY(10px); /*X axis also possible */
-    transition: all 0.4s ease;
-    opacity: 0;
-    height: 100%;
     width: 70%;
+    height: 100%;
+    transform: translateY(10px); /*X axis also possible */
+    border-bottom: 2px solid $color-10;
+    content: "";
+    opacity: 0;
+    transition: all 0.4s ease;
   }
 
   &:hover,
   &:active,
   &:focus {
-    color: $color-6;
     outline: none;
+    color: $color-6;
 
     &:after {
+      transform: translateY(2px);
       border-color: $color-6;
       opacity: 1;
-      transform: translateY(2px);
     }
   }
 }
