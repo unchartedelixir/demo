@@ -1,0 +1,28 @@
+table,
+.table {
+  margin: $pad 0;
+  width: 100%;
+
+  td, th {
+    padding: $pad-xs $pad-xxs;
+    text-align: center;
+  }
+
+  th {
+    font-weight: 600;
+  }
+
+  tr {
+    border-bottom: 2px solid $color-2;
+
+    &:last-of-type {
+      border-bottom: none;
+    }
+  }
+
+  caption {
+    color: $color-6;
+    letter-spacing: 2px;
+    margin-bottom: $pad-sm;
+  }
+}
