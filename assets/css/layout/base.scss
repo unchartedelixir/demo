@@ -6,22 +6,18 @@
   }
 
   &__background {
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
     z-index: -1;
+    position: fixed;
     top: 50%;
     left: 50%;
+    width: 100vw;
+    height: 100vh;
     transform: translate(-50%, -50%);
   }
 }
 
 .header {
-  margin: 8rem $pad $pad-lg;
-  text-align: center;
+  margin: 14rem $pad $pad-lg;
   background: linear-gradient(rgba($color-1, 0%), rgba($color-1, 100%), rgba($color-1, 0%));
-
-  h2 {
-    background: linear-gradient(rgba($color-1, 0%), rgba($color-1, 100%), rgba($color-1, 100%), rgba($color-1, 0%));
-  }
+  text-align: center;
 }
