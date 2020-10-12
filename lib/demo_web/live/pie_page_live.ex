@@ -8,21 +8,6 @@ defmodule DemoWeb.PiePageLive do
 
   @impl true
   def mount(_params, _session, socket) do
-    colors = %{
-      blue: "#6bdee4",
-      rose_gradient: %Gradient{
-        start_color: "#642B73",
-        stop_color: "#C6426E"
-      },
-      blue_gradient: %Gradient{
-        start_color: "#36D1DC",
-        stop_color: "#5B86E5"
-      },
-      red_gradient: %Gradient{
-        start_color: "#FF9486",
-        stop_color: "#FF1379"
-      }
-    }
 
     pie_chart = %BaseChart{
       title: "Best Kind of Pie",
@@ -38,6 +23,10 @@ defmodule DemoWeb.PiePageLive do
         red_gradient: %Gradient{
           start_color: "#FF9486",
           stop_color: "#FF1379"
+        },
+        green_gradient:  %Gradient{
+          start_color: "#1fda00",
+          stop_color: "#00e7c4"
         }
       },
       dataset: %PieChart.Dataset{
@@ -45,7 +34,8 @@ defmodule DemoWeb.PiePageLive do
           %BaseDatum{
             name: "Pecan",
             fill_color: :red_gradient,
-            values: [20.0]
+            values: [20.0],
+            emphasize: true
           },
           %BaseDatum{
             name: "Blueberry",
@@ -59,7 +49,7 @@ defmodule DemoWeb.PiePageLive do
           },
           %BaseDatum{
             name: "Chocolate",
-            fill_color: :blue_gradient,
+            fill_color: :green_gradient,
             values: [17.0]
           }
         ]
