@@ -8,15 +8,12 @@ h1 {
   background: -webkit-linear-gradient($color-5, $color-6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-bottom: $pad-lg;
+  margin-bottom: $pad-xs;
   font-weight: 100;
   line-height: 1;
 
   span.ex {
-    @include fluid-type(0.1em, 0.2em);
-    background: -webkit-linear-gradient($color-8, $color-8, $color-7);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    @include fluid-type(0.2em, 0.3em);
     font-weight: 400;
     line-height: 0;
     vertical-align: middle;
@@ -24,15 +21,21 @@ h1 {
 }
 
 h2 {
-  @include fluid-type(1em, 1.2em);
+  @include fluid-type(1.2em, 1.5em);
   font-weight: 200;
   letter-spacing: 5px;
+
+  &.sub-title {
+    @include fluid-type(1em, 1.2em);
+    font-weight: 200;
+    letter-spacing: 5px;
+  }
 }
 
 h3 {
   @include fluid-type(0.9em, 1em);
   margin-bottom: $pad;
-  font-weight: 400;
+  font-weight: 500;
   letter-spacing: 2px;
   line-height: 1.5;
 }

@@ -1,6 +1,7 @@
 <header class="header">
-  <h2>a simple elixir charting library</h2>
-  <h1>uncharted<span class="ex">+phoenix</span></h1>
+  <h2 class="sub-title">a simple elixir charting library</h2>
+  <h1>uncharted<span class="ex">elixir</h1>
+  <h3 class="u-push-bottom--lg rose"><b>built for live updating data, strong accessibility, and flexible design</b></h3>
   <div class="intro">
     <p>This demo is a working example of each chart type found in Uncharted Phoenix, the LiveView adaptation of the core package Uncharted. For more information, visit the respective GitHub repositories or HexDocs.</p>
     <div class="intro__links">
@@ -18,27 +19,30 @@
     </div>
   </div>
 </header>
-<section class="card__grid-1">
-  <div class="card">
-    <h3 class="u-center u-push-bottom"><%= Uncharted.Chart.title(@pie_chart) %><br /><span class="caption">the pie chart</span></h3>
-    <%= UnchartedPhoenix.render(@socket, @pie_chart) %>
+<section class="u-contain">
+  <h2 class="u-center">library charts</h2>
+  <div class="card__grid-1">
+    <div class="card">
+      <h3 class="u-center u-push-bottom"><%= Uncharted.Chart.title(@pie_chart) %><br /><span class="caption">the pie chart</span></h3>
+      <%= live_component @socket, UnchartedPhoenix.LivePieComponent, chart: @pie_chart %>
+    </div>
+    <div class="card">
+      <h3 class="u-center u-push-bottom"><%= Uncharted.Chart.title(@column_chart)  %><br /><span class="caption">the column chart</span></h3>
+      <%= live_component @socket, UnchartedPhoenix.LiveColumnComponent, chart: @column_chart %>
+    </div>
+    <div class="card">
+      <h3 class="u-center u-push-bottom"><%= Uncharted.Chart.title(@progress_chart) %><br /><span class="caption">the progress chart</span></h3>
+      <%= live_component @socket, UnchartedPhoenix.LiveProgressComponent, chart: @progress_chart %>
+    </div>
   </div>
-  <div class="card">
-    <h3 class="u-center u-push-bottom"><%= Uncharted.Chart.title(@column_chart)  %><br /><span class="caption">the column chart</span></h3>
-    <%= UnchartedPhoenix.render(@socket, @column_chart) %>
-  </div>
-  <div class="card">
-    <h3 class="u-center u-push-bottom"><%= Uncharted.Chart.title(@progress_chart) %><br /><span class="caption">the progress chart</span></h3>
-    <%= UnchartedPhoenix.render(@socket, @progress_chart) %>
-  </div>
-</section>
-<section class="card__grid-2">
-  <div class="card">
-    <h3 class="u-center u-push-bottom"><%= Uncharted.Chart.title(@line_chart) %></h3>
-    <%= UnchartedPhoenix.render(@socket, @line_chart) %>
-  </div>
-  <div class="card">
-    <h3 class="u-center u-push-bottom"><%= Uncharted.Chart.title(@bar_chart) %><br /><span class="caption">the bar chart</span></h3>
-    <%= UnchartedPhoenix.render(@socket, @bar_chart)  %>
+  <div class="card__grid-2">
+    <div class="card">
+      <h3 class="u-center u-push-bottom"><%= Uncharted.Chart.title(@line_chart) %></h3>
+      <%= live_component @socket, UnchartedPhoenix.LiveLineComponent, chart: @line_chart %>
+    </div>
+    <div class="card">
+      <h3 class="u-center u-push-bottom"><%= Uncharted.Chart.title(@bar_chart) %><br /><span class="caption">the bar chart</span></h3>
+      <%= live_component @socket, UnchartedPhoenix.LiveBarComponent, chart: @bar_chart  %>
+    </div>
   </div>
 </section>
