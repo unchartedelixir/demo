@@ -24,25 +24,25 @@
   <div class="card__grid-1">
     <div class="card">
       <h3 class="u-center u-push-bottom"><%= Uncharted.Chart.title(@pie_chart) %><br /><span class="caption">the pie chart</span></h3>
-      <%= live_component @socket, UnchartedPhoenix.LivePieComponent, chart: @pie_chart %>
+      <%= UnchartedPhoenix.render(@socket, @pie_chart) %>
     </div>
     <div class="card">
       <h3 class="u-center u-push-bottom"><%= Uncharted.Chart.title(@column_chart)  %><br /><span class="caption">the column chart</span></h3>
-      <%= live_component @socket, UnchartedPhoenix.LiveColumnComponent, chart: @column_chart %>
+      <%= UnchartedPhoenix.render(@socket, @column_chart) %>
     </div>
     <div class="card">
       <h3 class="u-center u-push-bottom"><%= Uncharted.Chart.title(@progress_chart) %><br /><span class="caption">the progress chart</span></h3>
-      <%= live_component @socket, UnchartedPhoenix.LiveProgressComponent, chart: @progress_chart %>
+      <%= UnchartedPhoenix.render(@socket, @progress_chart) %>
     </div>
   </div>
   <div class="card__grid-2">
     <div class="card">
       <h3 class="u-center u-push-bottom"><%= Uncharted.Chart.title(@line_chart) %></h3>
-      <%= live_component @socket, UnchartedPhoenix.LiveLineComponent, chart: @line_chart %>
+      <%= UnchartedPhoenix.render(@socket, @line_chart) %>
     </div>
     <div class="card">
       <h3 class="u-center u-push-bottom"><%= Uncharted.Chart.title(@bar_chart) %><br /><span class="caption">the bar chart</span></h3>
-      <%= live_component @socket, UnchartedPhoenix.LiveBarComponent, chart: @bar_chart  %>
+      <%= UnchartedPhoenix.render(@socket, @bar_chart)  %>
     </div>
   </div>
 </section>
