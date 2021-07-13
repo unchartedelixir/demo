@@ -17,6 +17,7 @@ defmodule DemoWeb.Router do
   scope "/", DemoWeb do
     pipe_through :browser
 
+    live "/pie", PiePageLive, :index
     live "/", PageLive, :index
   end
 
