@@ -1,4 +1,4 @@
-# Uncharted Demo
+# Uncharted Examples
 Uncharted is a simple ***Elixir*** charting library that generates easy to customize charts.
 
 Demo can be found [here](https://unchartedelixir.herokuapp.com/)
