@@ -270,11 +270,15 @@
         <%= UnchartedPhoenix.render(@socket, @bar_chart)  %>
       </div>
     </div>
-    <div>
+    <div class="card__grid-2">
       <div class="card">
         <h3 class="u-center u-push-bottom"><%= Uncharted.Chart.title(@scatter_plot) %><br /><span class="caption">the scatter plot</span></h3>
         <%= UnchartedPhoenix.render(@socket, @scatter_plot)  %>
       </div>
+    </div>
+    <div class="card">
+      <h3 class="u-center u-push-bottom"><%= Uncharted.Chart.title(@stacked_column_chart) %><br /><span class="caption">the stacked column chart</span></h3>
+      <%= UnchartedPhoenix.render(@socket, @stacked_column_chart)  %>
     </div>
   </div>
    <div class="charts__transition flipped">

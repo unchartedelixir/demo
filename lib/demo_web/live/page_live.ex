@@ -5,14 +5,9 @@ defmodule DemoWeb.PageLive do
 
   alias Demo.Examples.Cincy
   alias Demo.SystemData.{Memory, MemoryChart, VMEvents}
-  alias Uncharted.{BaseChart, BaseDatum, Gradient}
+  alias Uncharted.{BaseChart, BaseDatum, Gradient, Section}
   alias Uncharted.Axes.{BaseAxes, MagnitudeAxis, XYAxes}
-  alias Uncharted.BarChart
-  alias Uncharted.ColumnChart
-  alias Uncharted.LineChart
-  alias Uncharted.PieChart
-  alias Uncharted.ProgressChart
-  alias Uncharted.ScatterPlot
+  alias Uncharted.{BarChart, ColumnChart, LineChart, PieChart, ProgressChart, ScatterPlot}
 
   @impl true
   def mount(_params, _session, socket) do
@@ -187,6 +182,32 @@ defmodule DemoWeb.PageLive do
       }
     }
 
+    stacked_column_chart = %BaseChart{
+      title: "Cheese Coney Consumption by Neighborhood",
+      colors: colors,
+      component_id: "stacked_chart",
+      dataset: %ColumnChart.Dataset{
+        axes: %BaseAxes{
+          magnitude_axis: %MagnitudeAxis{
+            max: 10_000,
+            min: 0
+          }
+        },
+        sections: [
+          %Section{fill_color: :blue_gradient, label: "June", index: 1},
+          %Section{fill_color: :red_gradient, label: "July", index: 2},
+          %Section{fill_color: :rose_gradient, label: "May", index: 0}
+        ],
+        data: ~w(Landen Oakley Downtown Florence Erlanger)
+        |> Enum.map(fn neighborhood ->
+          %BaseDatum{
+            name: neighborhood,
+            values: [:rand.uniform() * 4_000, :rand.uniform() * 3_000, :rand.uniform() * 3_000]
+          }
+        end)
+      }
+    }
+
     {:ok,
      assign(socket,
        bar_chart: bar_chart(),
@@ -194,7 +215,8 @@ defmodule DemoWeb.PageLive do
        pie_chart: pie_chart,
        progress_chart: progress_chart,
        line_chart: line_chart,
-       scatter_plot: scatter_plot
+       scatter_plot: scatter_plot,
+       stacked_column_chart: stacked_column_chart
      )}
   end
 
