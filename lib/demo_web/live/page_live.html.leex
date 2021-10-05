@@ -45,4 +45,10 @@
       <%= UnchartedPhoenix.render(@socket, @bar_chart)  %>
     </div>
   </div>
+  <div class="card__grid-1">
+    <div class="card">
+      <h3 class="u-center u-push-bottom"><%= Uncharted.Chart.title(@doughnut_chart) %><br /><span class="caption">the doughnut chart</span></h3>
+      <%= UnchartedPhoenix.render(@socket, @doughnut_chart) %>
+    </div>
+  </div>
 </section>
