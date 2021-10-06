@@ -1,48 +1,101 @@
 <header class="header">
   <h2 class="sub-title">a simple elixir charting library</h2>
   <h1>uncharted<span class="ex">elixir</h1>
-  <h3 class="u-push-bottom--lg rose"><b>built for live updating data, strong accessibility, and flexible design</b></h3>
-  <div class="intro">
-    <p>This demo is a working example of each chart type found in Uncharted Phoenix, the LiveView adaptation of the core package Uncharted. For more information, visit the respective GitHub repositories or HexDocs.</p>
-    <div class="intro__links">
-      <div>
-        <h3 class="u-push-bottom--xs">Uncharted Phoenix</h3>
-        <a href="https://github.com/unchartedelixir/uncharted/tree/master/uncharted_phoenix" target="_blank" class="u-push-right--sm">GitHub</a>
-        <a href="https://hexdocs.pm/uncharted_phoenix/readme.html" target="_blank">HexDocs</a>
-      </div>
-
-      <div>
-        <h3 class="u-push-bottom--xs">Uncharted Package</h3>
-        <a href="https://github.com/unchartedelixir/uncharted/tree/master/uncharted" target="_blank" class="u-push-right--sm">GitHub</a>
-        <a href="https://hexdocs.pm/uncharted/readme.html" target="_blank">HexDocs</a>
-      </div>
-    </div>
-  </div>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#install">Install</a>
+    <a href="#charts">Charts</a>
+  </nav>
 </header>
-<section class="u-contain">
-  <h2 class="u-center">library charts</h2>
-  <div class="card__grid-1">
-    <div class="card">
-      <h3 class="u-center u-push-bottom"><%= Uncharted.Chart.title(@pie_chart) %><br /><span class="caption">the pie chart</span></h3>
-      <%= UnchartedPhoenix.render(@socket, @pie_chart) %>
+<div class="circle-1">
+  <svg height="100%" width="100%" viewBox="0 0 100 100" style="overflow: visible;">
+    <circle cx="50" cy="50" r="40" stroke-width="3" fill="transparent" />
+    <linearGradient id="redLight" gradientTransform="rotate(90)">
+      <stop stop-color="#ff948b" offset="0%"/>
+      <stop stop-color="#ff1379" offset="100%"/>
+    </linearGradient>
+  </svg>
+</div>
+<div class="circle-2">
+  <svg height="100%" width="100%" viewBox="0 0 100 100" style="overflow: visible;">
+    <circle cx="50" cy="50" r="40" stroke-width="3" fill="transparent" />
+    <linearGradient id="redLight" gradientTransform="rotate(90)">
+      <stop stop-color="#ff948b" offset="0%"/>
+      <stop stop-color="#ff1379" offset="100%"/>
+    </linearGradient>
+  </svg>
+</div>
+<div id="about" class="about">
+  <h2 class="u-center u-push-bottom--lg">Uncharted Territory</h2>
+  <ul class="about__list">
+    <li>Built with the Power of Elixir</li>
+    <li>A Variety of Beautiful Charts</li>
+    <li>Utilizes LiveView for Live Data</li>
+    <li>Smooth & Customizable Animations</li>
+    <li>Customizable SVG Charts</li>
+    <li>Assceability Including Tables For Screen Readers</li>
+  </ul>
+</div>
+<div id="install" class="install">
+  <h2 class="u-center u-push-bottom--lg">Install Uncharted</h2>
+  <div class="install__options">
+    <div class="install__card">
+      <h3 class="u-push-bottom--xs">Uncharted Phoenix</h3>
+      <p class="u-left u-push-top u-push-bottom">By defining an implementation of the Uncharted.Component protocol for all of Uncharted's built-in chart types, UnchartedPhoenix.render/2 knows how to render the appropriate kind of chart based on the dataset of the Uncharted. BaseChart struct you pass in. </p>
+      <a href="https://github.com/unchartedelixir/uncharted/tree/master/uncharted_phoenix" target="_blank" class="u-push-right--sm">GitHub</a>
+      <a href="https://hexdocs.pm/uncharted_phoenix/readme.html" target="_blank">HexDocs</a>
     </div>
-    <div class="card">
-      <h3 class="u-center u-push-bottom"><%= Uncharted.Chart.title(@column_chart)  %><br /><span class="caption">the column chart</span></h3>
-      <%= UnchartedPhoenix.render(@socket, @column_chart) %>
-    </div>
-    <div class="card">
-      <h3 class="u-center u-push-bottom"><%= Uncharted.Chart.title(@progress_chart) %><br /><span class="caption">the progress chart</span></h3>
-      <%= UnchartedPhoenix.render(@socket, @progress_chart) %>
+
+    <div class="install__card">
+      <h3 class="u-push-bottom--xs">Uncharted Package</h3>
+      <p class="u-left u-push-top u-push-bottom">Uncharted is a core package used by Uncharted Phoenix to define data structures and functions needed to prepare a chart for rendering. This is a separate core library from the phoenix LiveView package because we anticipate also more library adapters.</p>
+      <a href="https://github.com/unchartedelixir/uncharted/tree/master/uncharted" target="_blank" class="u-push-right--sm">GitHub</a>
+      <a href="https://hexdocs.pm/uncharted/readme.html" target="_blank">HexDocs</a>
     </div>
   </div>
-  <div class="card__grid-2">
-    <div class="card">
-      <h3 class="u-center u-push-bottom"><%= Uncharted.Chart.title(@line_chart) %></h3>
-      <%= UnchartedPhoenix.render(@socket, @line_chart) %>
+</div>
+<section id="charts" class="charts">
+  <div class="charts__transition">
+    <svg x="0px" y="0px" viewBox="0 0 1200 190.2" style="enable-background:new 0 0 1200 190.2;" xml:space="preserve">
+     <path class="transition__shape" d="M1200,133.6L1200,133.6c-23.8-13.8-54.1-7.6-70.6,14.4l-11.7,15.6c-23.3,31.2-70.9,28.3-90.3-5.4l0,0
+      c-30.7-53.5-93.1-80.1-153-65.4l-7.7,1.9c-25.6,6.3-52.1,7.7-78.2,4.1l-89.7-12.4c-14.9-2.1-30,2.2-41.6,11.7l0,0
+      c-60.5,49.3-140.3,67.8-216.4,50.4l0,0c-42-9.6-86-7.2-126.7,7.1L274,169.5c-71,24.9-148.8,21.3-217.2-10L0,133.6V0h1200V133.6z" />
+    </svg>
+  </div>
+  <div class="u-contain">
+    <div class="u-padded">
     </div>
-    <div class="card">
-      <h3 class="u-center u-push-bottom"><%= Uncharted.Chart.title(@bar_chart) %><br /><span class="caption">the bar chart</span></h3>
-      <%= UnchartedPhoenix.render(@socket, @bar_chart)  %>
+    <h2 class="u-center rose u-push-bottom">Uncharted Phoenix Charts</h2>
+    <div class="card__grid-1">
+      <div class="card">
+        <h3 class="u-center u-push-bottom"><%= Uncharted.Chart.title(@pie_chart) %><br /><span class="caption">the pie chart</span></h3>
+        <%= UnchartedPhoenix.render(@socket, @pie_chart) %>
+      </div>
+      <div class="card">
+        <h3 class="u-center u-push-bottom"><%= Uncharted.Chart.title(@column_chart)  %><br /><span class="caption">the column chart</span></h3>
+        <%= UnchartedPhoenix.render(@socket, @column_chart) %>
+      </div>
+      <div class="card">
+        <h3 class="u-center u-push-bottom"><%= Uncharted.Chart.title(@progress_chart) %><br /><span class="caption">the progress chart</span></h3>
+        <%= UnchartedPhoenix.render(@socket, @progress_chart) %>
+      </div>
     </div>
+    <div class="card__grid-2">
+      <div class="card">
+        <h3 class="u-center u-push-bottom"><%= Uncharted.Chart.title(@line_chart) %></h3>
+        <%= UnchartedPhoenix.render(@socket, @line_chart) %>
+      </div>
+      <div class="card">
+        <h3 class="u-center u-push-bottom"><%= Uncharted.Chart.title(@bar_chart) %><br /><span class="caption">the bar chart</span></h3>
+        <%= UnchartedPhoenix.render(@socket, @bar_chart)  %>
+      </div>
+    </div>
+  </div>
+   <div class="charts__transition flipped">
+    <svg x="0px" y="0px" viewBox="0 0 1200 190.2" style="enable-background:new 0 0 1200 190.2;" xml:space="preserve">
+     <path class="transition__shape" d="M1200,133.6L1200,133.6c-23.8-13.8-54.1-7.6-70.6,14.4l-11.7,15.6c-23.3,31.2-70.9,28.3-90.3-5.4l0,0
+      c-30.7-53.5-93.1-80.1-153-65.4l-7.7,1.9c-25.6,6.3-52.1,7.7-78.2,4.1l-89.7-12.4c-14.9-2.1-30,2.2-41.6,11.7l0,0
+      c-60.5,49.3-140.3,67.8-216.4,50.4l0,0c-42-9.6-86-7.2-126.7,7.1L274,169.5c-71,24.9-148.8,21.3-217.2-10L0,133.6V0h1200V133.6z" />
+    </svg>
   </div>
 </section>
