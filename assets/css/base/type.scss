@@ -4,7 +4,7 @@ body {
 }
 
 h1 {
-  @include fluid-type(3em, 10em);
+  @include fluid-type(5em, 10em);
   background: -webkit-linear-gradient($color-5, $color-6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

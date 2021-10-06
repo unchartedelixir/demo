@@ -28,12 +28,14 @@ nav {
 }
 
 .about {
-  margin: 15em auto;
+  margin: 35vh auto;
   max-width: 1000px;
 
   &__list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    @media (min-width: $screen-mobile) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
 
     li {
       @include fluid-type(1.2em, 1.6em);
@@ -60,12 +62,14 @@ nav {
 }
 
 .install {
-  margin: 0 auto 10em;
+  margin: 0 auto 15vh;
   max-width: 1000px;
 
   &__options {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    @media (min-width: $screen-tablet) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
   &__card {
@@ -153,10 +157,10 @@ path.transition__shape {
 .circle-1 {
   position: absolute;
   display: block;
-  top: 32em;
-  left: -48em;
-  width: 75em;
-  height: 75em;
+  top: 60vh;
+  left: -40vw;
+  width: 65vw;
+  height: 65vw;
   transform-origin: (0, 0);
   animation: circleRotate 5s ease-in-out infinite;
   z-index: -1;
@@ -170,10 +174,10 @@ path.transition__shape {
 .circle-2 {
   position: absolute;
   display: block;
-  top: 85em;
+  top: 145vh;
   right: -10em;
-  width: 60em;
-  height: 60em;
+  width: 45vw;
+  height: 45vw;
   transform-origin: (0, 0);
   animation: circleRotate 5s ease-in-out infinite;
   z-index: -1;
