@@ -184,6 +184,7 @@ defmodule DemoWeb.PageLive do
 
     stacked_column_chart = %BaseChart{
       title: "Cheese Coney Consumption by Neighborhood",
+      component_id: "stacked column chart",
       colors: colors,
       component_id: "stacked_chart",
       dataset: %ColumnChart.Dataset{
@@ -194,9 +195,9 @@ defmodule DemoWeb.PageLive do
           }
         },
         sections: [
-          %Section{fill_color: :blue_gradient, label: "June", index: 1},
+          %Section{fill_color: :rose_gradient, label: "June", index: 1},
           %Section{fill_color: :red_gradient, label: "July", index: 2},
-          %Section{fill_color: :rose_gradient, label: "May", index: 0}
+          %Section{fill_color: :blue_gradient, label: "May", index: 0}
         ],
         data: ~w(Landen Oakley Downtown Florence Erlanger)
         |> Enum.map(fn neighborhood ->
