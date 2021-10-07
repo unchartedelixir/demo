@@ -22,13 +22,23 @@
 }
 
 nav {
+  position: sticky;
+  top: 0;
+  display: block;
+  width: 100vw;
+  background-color: $color-4;
+  pading: $pad;
+  box-sizing: border-box;
+  margin-top: $pad-lg;
+  z-index: 100;
+
   a {
     margin: 0 $pad-sm;
   }
 }
 
 .about {
-  margin: 35vh auto;
+  margin: 45vh auto;
   max-width: 1000px;
 
   &__list {
@@ -62,7 +72,7 @@ nav {
 }
 
 .install {
-  margin: 0 auto 15vh;
+  margin: 0 auto 25vh;
   max-width: 1000px;
 
   &__options {
@@ -157,7 +167,7 @@ path.transition__shape {
 .circle-1 {
   position: absolute;
   display: block;
-  top: 60vh;
+  top: 75vh;
   left: -40vw;
   width: 65vw;
   height: 65vw;
@@ -174,7 +184,7 @@ path.transition__shape {
 .circle-2 {
   position: absolute;
   display: block;
-  top: 145vh;
+  top: 175vh;
   right: -10em;
   width: 45vw;
   height: 45vw;
