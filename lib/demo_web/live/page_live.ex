@@ -9,7 +9,7 @@ defmodule DemoWeb.PageLive do
   alias Uncharted.Axes.{BaseAxes, MagnitudeAxis, XYAxes}
   alias Uncharted.BarChart
   alias Uncharted.ColumnChart
-  alias Uncharted.DoughnutChart
+  alias Uncharted.DonutChart
   alias Uncharted.LineChart
   alias Uncharted.PieChart
   alias Uncharted.ProgressChart
@@ -138,8 +138,8 @@ defmodule DemoWeb.PageLive do
 
     progress_chart = progress_chart(from: column_chart)
 
-    doughnut_chart = %BaseChart{
-      title: "Best kind of doughnut",
+    donut_chart = %BaseChart{
+      title: "Best kind of donut",
       colors: %{
         rose_gradient: %Gradient{
           start_color: "#642B73",
@@ -154,7 +154,7 @@ defmodule DemoWeb.PageLive do
           stop_color: "#FF1379"
         }
       },
-      dataset: %DoughnutChart.Dataset{
+      dataset: %DonutChart.Dataset{
         data: [
           %BaseDatum{
             name: "Cake",
@@ -194,7 +194,7 @@ defmodule DemoWeb.PageLive do
        pie_chart: pie_chart,
        progress_chart: progress_chart,
        line_chart: line_chart,
-       doughnut_chart: doughnut_chart
+       donut_chart: donut_chart
      )}
   end
 
