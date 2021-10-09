@@ -177,6 +177,8 @@ defmodule DemoWeb.PageLive do
             values: [17.0]
           }
         ],
+        data_name_label: "Donut Type",
+        data_value_label: "Percentage",
         center_value: 100,
         center_value_fill_color: :blue_gradient,
         label: "Donuts Tasted",
