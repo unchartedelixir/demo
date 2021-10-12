@@ -1,0 +1,43 @@
+.btn {
+  border-radius: 40px;
+  color: white;
+  display: inline-block;
+  overflow: hidden;
+  padding: $pad-sm $pad;
+  position: relative;
+  z-index: 0;
+
+  &::after {
+    content: unset;
+  }
+
+  &::before {
+    content: "";
+    background: linear-gradient(45deg, $color-9, $color-10, $color-5, $color-6);
+    border: 0;
+    height: 100%;
+    opacity: 1;
+    position: absolute;
+      top: 0;
+      left: 0;
+    transform: translateX(-6%);
+    transition: all .4s ease;
+    width: 350%;
+    z-index: -1;
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: white;
+    text-decoration: none;
+
+    &::after {
+      content: unset;
+    }
+
+    &::before {
+      transform: translateX(-65%);
+    }
+  }
+}

@@ -257,7 +257,7 @@
       <div class="card u-center">
         <h3 class="u-center u-push-bottom"><%= Uncharted.Chart.title(@progress_chart) %><br /><span class="caption">the progress chart</span></h3>
         <%= UnchartedPhoenix.render(@socket, @progress_chart) %>
-        <%= link "See the Possibilities", to: Routes.progress_path(@socket, :index) %>
+        <%= link "See the Possibilities", to: Routes.progress_path(@socket, :index), class: "btn" %>
       </div>
     </div>
     <div class="card__grid-2">
