@@ -10,6 +10,11 @@
 .u-contain {
   max-width: 1400px;
   margin: 0 auto;
+
+  &--sm {
+    margin: 0 auto;
+    max-width: 800px;
+  }
 }
 
 //PADDING
