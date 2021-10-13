@@ -22,17 +22,14 @@
 
   &__chart {
     width: 100%;
-    max-width: 600px;
+    max-width: 800px;
     margin: $pad-lg auto 0;
   }
 }
 
 nav {
-  position: sticky;
-  top: 0;
   display: block;
   width: 100vw;
-  background-color: $color-4;
   pading: $pad;
   box-sizing: border-box;
   z-index: 100;
@@ -167,52 +164,12 @@ path.transition__shape {
     c-60.5,49.3-140.3,67.8-216.4,50.4l0,0c-42-9.6-86-7.2-126.7,7.1L274,169.5c-71,24.9-148.8,21.3-217.2-10L0,133.6V0h1200V133.6z"); }
 }
 
-.circle-1 {
-  position: absolute;
-  display: block;
-  top: 75vh;
-  left: -40vw;
-  width: 65vw;
-  height: 65vw;
-  transform-origin: (0, 0);
-  animation: circleRotate 5s ease-in-out infinite;
-  z-index: -1;
-
-  svg circle{
-    stroke: url(#redLight);
-    overflow: visible;
-  }
-}
-
-.circle-2 {
-  position: absolute;
-  display: block;
-  top: 175vh;
-  right: -10em;
-  width: 45vw;
-  height: 45vw;
-  transform-origin: (0, 0);
-  animation: circleRotate 5s ease-in-out infinite;
-  z-index: -1;
-
-  svg circle{
-    stroke: url(#blueLight);
-    overflow: visible;
-  }
-}
-
-@keyframes circleBlur {
-  0% { filter: blur(0px); transform: rotate(0deg); }
-  50% { filter: blur(2px);}
-  100% { filter: blur(0px); transform: translateY(180deg); }
-}
-
-@keyframes circleRotate {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
 footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 $pad $pad-sm;
+  font-size: 0.8em;
+
   p {
     color: $color-1;
   }

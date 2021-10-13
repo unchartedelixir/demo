@@ -45,6 +45,12 @@ h3 {
   line-height: 1.5;
 }
 
+.card--blue-light h3 {
+  background: -webkit-linear-gradient($color-5, $color-6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 p {
   @include fluid-type(1em, 1.2em);
   font-weight: 400;
