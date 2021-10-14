@@ -1,4 +1,5 @@
-.btn {
+.button,
+a.button {
   border-radius: 40px;
   color: white;
   display: inline-block;
@@ -13,7 +14,7 @@
 
   &::before {
     content: "";
-    background: linear-gradient(45deg, $color-9, $color-10, $color-5, $color-6);
+    background: linear-gradient(45deg, #00379c, $color-10, $color-5, $color-6);
     border: 0;
     height: 100%;
     opacity: 1;
