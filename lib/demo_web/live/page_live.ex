@@ -12,6 +12,7 @@ defmodule DemoWeb.PageLive do
   alias Uncharted.LineChart
   alias Uncharted.PieChart
   alias Uncharted.ProgressChart
+  alias Uncharted.ScatterPlot
 
   @impl true
   def mount(_params, _session, socket) do
@@ -137,13 +138,63 @@ defmodule DemoWeb.PageLive do
 
     progress_chart = progress_chart(from: column_chart)
 
+    scatter_plot = %BaseChart{
+      title: "Live Scatter Plot",
+      colors: colors,
+      dataset: %ScatterPlot.Dataset{
+        axes: %XYAxes{
+          x: %MagnitudeAxis{
+            max: 5,
+            min: 0
+          },
+          y: %MagnitudeAxis{
+            max: 2500,
+            min: 0
+          }
+        },
+        data: [
+          %BaseDatum{
+            name: "Point 1",
+            fill_color: :red_gradient,
+            values: [0, 2500]
+          },
+          %BaseDatum{
+            name: "Point 2",
+            fill_color: :red_gradient,
+            values: [1.2, 1800]
+          },
+          %BaseDatum{
+            name: "Point 3",
+            fill_color: :red_gradient,
+            values: [1.9, 2000, 30]
+          },
+          %BaseDatum{
+            name: "Point 4",
+            fill_color: :red_gradient,
+            values: [2.7, 1400, 10]
+          },
+          %BaseDatum{
+            name: "Point 5",
+            fill_color: :red_gradient,
+            values: [3.5, 1800, 60]
+          },
+          %BaseDatum{
+            name: "Point 6",
+            fill_color: :red_gradient,
+            values: [4.2, 1800, 50]
+          }
+        ]
+      }
+    }
+
     {:ok,
      assign(socket,
        bar_chart: bar_chart(),
        column_chart: column_chart,
        pie_chart: pie_chart,
        progress_chart: progress_chart,
-       line_chart: line_chart
+       line_chart: line_chart,
+       scatter_plot: scatter_plot
      )}
   end
 
