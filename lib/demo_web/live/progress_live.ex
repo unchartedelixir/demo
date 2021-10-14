@@ -54,7 +54,7 @@ defmodule DemoWeb.ProgressLive do
     {:ok,
      assign(socket,
        column_chart: column_chart,
-       progress_chart: progress_chart,
+       progress_chart: progress_chart
      )}
   end
 
