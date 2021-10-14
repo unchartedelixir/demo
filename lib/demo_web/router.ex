@@ -18,5 +18,7 @@ defmodule DemoWeb.Router do
     pipe_through :browser
 
     live "/", PageLive, :index
+
+    live "/progress-chart", ProgressLive, :index
   end
 end

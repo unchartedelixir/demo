@@ -1,6 +1,6 @@
 <header class="header u-center">
   <h2 class="sub-title">a simple elixir charting library</h2>
-  <h1 class="u-push-bottom">uncharted<span class="ex">elixir</h1>
+  <h1 class="u-push-bottom">uncharted<span class="ex">elixir</span></h1>
   <nav>
     <a href="#about">About Uncharted</a>
     <a href="#install">Packages</a>
@@ -254,9 +254,10 @@
         <h3 class="u-center u-push-bottom"><%= Uncharted.Chart.title(@column_chart)  %><br /><span class="caption">the column chart</span></h3>
         <%= UnchartedPhoenix.render(@socket, @column_chart) %>
       </div>
-      <div class="card">
+      <div class="card u-center">
         <h3 class="u-center u-push-bottom"><%= Uncharted.Chart.title(@progress_chart) %><br /><span class="caption">the progress chart</span></h3>
         <%= UnchartedPhoenix.render(@socket, @progress_chart) %>
+        <%= link "See the Possibilities", to: Routes.progress_path(@socket, :index), class: "button" %>
       </div>
     </div>
     <div class="card__grid-2">
