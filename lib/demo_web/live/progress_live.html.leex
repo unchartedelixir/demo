@@ -1,88 +1,178 @@
 <header class="header">
   <h2 class="sub-title">a simple elixir charting library</h2>
-  <h1 class="u-push-bottom">uncharted<span class="ex">elixir</h1>
+  <h1 class="small u-push-bottom">uncharted<span class="ex">elixir</span></h1>
   <nav>
     <a href="/">Home</a>
     <a href="/#about">About Uncharted</a>
     <a href="/#install">Packages</a>
     <a href="/#charts">Uncharted Phoenix</a>
   </nav>
+  <div class="u-contain u-push-top--lg">
+    <h2 class="u-center u-push-bottom">The Progress Chart</h2>
+    <div class="u-grid u-grid--no-wrap">
+      <svg class="progress-chart" width="100%" height="100%" viewBox="0 0 42 42" aria-hidden="true">
+        <title id="progressChartTitle">Progress chart visualizing</title>
+
+        <g>
+          <circle class="chart-center" cx="21" cy="21" r="16" fill="transparent"></circle>
+          <circle class="chart-ring" cx="21" cy="21" r="16" fill="transparent" stroke="url(#gray_gradient)" stroke-width="5"></circle>
+
+          <svg class="chart-label" width="100%" height="100%" y="0" x="0">
+            <text class="label-percentage" x="50%" y="50%" fill="url(#blue_gradient)" font-size="10px" font-weight="100" font-family="sans-serif" alignment-baseline="middle" text-anchor="middle">75%</text>
+            <text class="label" x="50%" y="62%" fill="#ffffff" font-size="3px" font-weight="300" font-family="sans-serif" alignment-baseline="middle" text-anchor="middle">Participation</text>
+            <text class="label" x="50%" y="70%" fill="#36D1DC" font-size="2px" font-weight="300" font-family="sans-serif" alignment-baseline="middle" text-anchor="middle">(% of Total)</text>
+          </svg>
+
+          <circle
+          class="chart-data"
+          cx="21"
+          cy="21"
+          r="16"
+          fill="transparent"
+          stroke="url(#blue_gradient)"
+          style="transition: all 0.5s ease"
+          stroke-width="5"
+          stroke-dasharray="75 <%= 100 - 75 %>"
+          stroke-dashoffset="25"
+          stroke-linecap="round">
+          <animate attributeName="stroke-dasharray" values=" 0 100;75 <%= 100 - 75 %>" dur="1s" repeatCount="freeze" />
+          </circle>
+        </g>
+
+        <defs>
+          <linearGradient id="gray_gradient">
+            <stop stop-color="rgba(255, 255, 255, .3)" offset="0%"></stop>
+            <stop stop-color="rgba(255, 255, 255, 0)" offset="100%"></stop>
+          </linearGradient>
+          <linearGradient id="blue_gradient">
+            <stop stop-color="#36D1DC" offset="0%"></stop>
+            <stop stop-color="#5B86E5" offset="100%"></stop>
+          </linearGradient>
+        </defs>
+      </svg>
+
+      <svg class="progress-chart" width="100%" height="100%" viewBox="0 0 42 42" aria-hidden="true>
+        <title id="progressChartTitle">Progress chart visualization</title>
+
+        <g>
+          <circle class="chart-center" cx="21" cy="21" r="16" fill="transparent"></circle>
+          <circle class="chart-ring" cx="21" cy="21" r="16" fill="transparent" stroke="url(#gray_gradient)" stroke-width="5"></circle>
+
+          <svg class="chart-label" width="100%" height="100%" y="0" x="0">
+            <text class="label-percentage" x="50%" y="50%" fill="url(#red_gradient)" font-size="10px" font-weight="100" font-family="sans-serif" alignment-baseline="middle" text-anchor="middle">33%</text>
+            <text class="label" x="50%" y="62%" fill="#ffffff" font-size="3px" font-weight="300" font-family="sans-serif" alignment-baseline="middle" text-anchor="middle">Participation</text>
+            <text class="label" x="50%" y="70%" fill="#FF9486" font-size="2px" font-weight="300" font-family="sans-serif" alignment-baseline="middle" text-anchor="middle">(% of Total)</text>
+          </svg>
+
+          <circle
+          class="chart-data"
+          cx="21"
+          cy="21"
+          r="16"
+          fill="transparent"
+          stroke="url(#red_gradient)"
+          style="transition: all 0.5s ease"
+          stroke-width="5"
+          stroke-dasharray="33 <%= 100 - 33 %>"
+          stroke-dashoffset="25"
+          stroke-linecap="round">
+          <animate attributeName="stroke-dasharray" values=" 0 100;33 <%= 100 - 33 %>" dur="1s" repeatCount="freeze" />
+          </circle>
+        </g>
+
+        <defs>
+          <linearGradient id="gray_gradient">
+            <stop stop-color="rgba(255, 255, 255, .3)" offset="0%"></stop>
+            <stop stop-color="rgba(255, 255, 255, 0)" offset="100%"></stop>
+          </linearGradient>
+          <linearGradient id="red_gradient">
+            <stop stop-color="#FF9486" offset="0%"></stop>
+            <stop stop-color="#FF1379" offset="100%"></stop>
+          </linearGradient>
+        </defs>
+      </svg>
+
+      <svg class="progress-chart" width="100%" height="100%" viewBox="0 0 42 42" aria-hidden="true">
+        <title id="progressChartTitle">Progress chart visualization</title>
+
+        <g>
+          <circle class="chart-center" cx="21" cy="21" r="16" fill="transparent"></circle>
+          <circle class="chart-ring" cx="21" cy="21" r="16" fill="transparent" stroke="url(#gray_gradient)" stroke-width="5"></circle>
+
+          <svg class="chart-label" width="100%" height="100%" y="0" x="0">
+            <text class="label-percentage" x="50%" y="50%" fill="url(#rose_gradient)" font-size="10px" font-weight="100" font-family="sans-serif" alignment-baseline="middle" text-anchor="middle">92%</text>
+            <text class="label" x="50%" y="62%" fill="#ffffff" font-size="3px" font-weight="300" font-family="sans-serif" alignment-baseline="middle" text-anchor="middle">Participation</text>
+            <text class="label" x="50%" y="70%" fill="#C6426E" font-size="2px" font-weight="300" font-family="sans-serif" alignment-baseline="middle" text-anchor="middle">(% of Total)</text>
+          </svg>
+
+          <circle
+          class="chart-data"
+          cx="21"
+          cy="21"
+          r="16"
+          fill="transparent"
+          stroke="url(#rose_gradient)"
+          style="transition: all 0.5s ease"
+          stroke-width="5"
+          stroke-dasharray="92 <%= 100 - 92 %>"
+          stroke-dashoffset="25"
+          stroke-linecap="round">
+          <animate attributeName="stroke-dasharray" values=" 0 100;92 <%= 100 - 92 %>" dur="1s" repeatCount="freeze" />
+          </circle>
+        </g>
+
+        <defs>
+          <linearGradient id="gray_gradient">
+            <stop stop-color="rgba(255, 255, 255, .3)" offset="0%"></stop>
+            <stop stop-color="rgba(255, 255, 255, 0)" offset="100%"></stop>
+          </linearGradient>
+          <linearGradient id="rose_gradient">
+            <stop stop-color="#C6426E" offset="0%"></stop>
+            <stop stop-color="#642B73" offset="100%"></stop>
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+  </div>
 </header>
 
 <main>
- <section class="charts">
-   <div class="charts__transition">
-     <svg x="0px" y="0px" viewBox="0 0 1200 190.2" style="enable-background:new 0 0 1200 190.2;" xml:space="preserve">
-       <path class="transition__shape" d="M1200,133.6L1200,133.6c-23.8-13.8-54.1-7.6-70.6,14.4l-11.7,15.6c-23.3,31.2-70.9,28.3-90.3-5.4l0,0
-       c-30.7-53.5-93.1-80.1-153-65.4l-7.7,1.9c-25.6,6.3-52.1,7.7-78.2,4.1l-89.7-12.4c-14.9-2.1-30,2.2-41.6,11.7l0,0
-       c-60.5,49.3-140.3,67.8-216.4,50.4l0,0c-42-9.6-86-7.2-126.7,7.1L274,169.5c-71,24.9-148.8,21.3-217.2-10L0,133.6V0h1200V133.6z" />
-     </svg>
-   </div>
-
-   <div class="header__chart">
-     <h2 class="u-center">The Progress Chart</h2>
-     <object data-testid="lc-live-progress-component" role="img" aria-label="Progress chart visualizing " alt="Progress chart visualizing ">
-       <svg class="progress-chart" width="100%" height="100%" viewBox="0 0 42 42">
-           <title id="progressChartTitle">Progress chart visualizing</title>
-
-         <g>
-           <circle class="chart-center" cx="21" cy="21" r="16" fill="transparent"></circle>
-           <circle class="chart-ring" cx="21" cy="21" r="16" fill="transparent" stroke="url(#gray_gradient)" stroke-width="5"></circle>
-
-           <svg class="chart-label" width="100%" height="100%" y="0" x="0">
-             <text class="label-percentage" x="50%" y="50%" fill="url(#red_gradient)" font-size="10px" font-weight="100" font-family="sans-serif" alignment-baseline="middle" text-anchor="middle">75%</text>
-             <text class="label" x="50%" y="62%" fill="#333333" font-size="3px" font-weight="300" font-family="sans-serif" alignment-baseline="middle" text-anchor="middle">Participation</text>
-             <text class="label" x="50%" y="70%" fill="#642B73" font-size="2px" font-weight="300" font-family="sans-serif" alignment-baseline="middle" text-anchor="middle">(% of Total)</text>
-           </svg>
-
-           <circle
-               class="chart-data"
-               cx="21"
-               cy="21"
-               r="16"
-               fill="transparent"
-               stroke="url(#red_gradient)"
-               style="transition: all 0.5s ease"
-               stroke-width="5"
-               stroke-dasharray="75 <%= 100 - 75 %>"
-               stroke-dashoffset="25"
-               stroke-linecap="round">
-               <animate attributeName="stroke-dasharray" values=" 0 100;75 <%= 100 - 75 %>" dur="1s" repeatCount="freeze" />
-             </circle>
-         </g>
-
-         <defs>
-           <linearGradient id="gray_gradient">
-             <stop stop-color="rgba(0, 0, 0, .1)" offset="0%"></stop>
-             <stop stop-color="rgba(0, 0, 0, 0)" offset="100%"></stop>
-           </linearGradient>
-           <linearGradient id="blue_gradient">
-             <stop stop-color="#36D1DC" offset="0%"></stop>
-             <stop stop-color="#5B86E5" offset="100%"></stop>
-           </linearGradient>
-           <linearGradient id="red_gradient">
-             <stop stop-color="#FF9486" offset="0%"></stop>
-             <stop stop-color="#FF1379" offset="100%"></stop>
-           </linearGradient>
-           <linearGradient id="rose_gradient">
-             <stop stop-color="#642B73" offset="0%"></stop>
-             <stop stop-color="#C6426E" offset="100%"></stop>
-           </linearGradient>
-         </defs>
+  <section class="charts">
+    <div class="charts__transition">
+      <svg x="0px" y="0px" viewBox="0 0 1200 190.2" style="enable-background:new 0 0 1200 190.2;" xml:space="preserve">
+        <path class="transition__shape" d="M1200,133.6L1200,133.6c-23.8-13.8-54.1-7.6-70.6,14.4l-11.7,15.6c-23.3,31.2-70.9,28.3-90.3-5.4l0,0
+         c-30.7-53.5-93.1-80.1-153-65.4l-7.7,1.9c-25.6,6.3-52.1,7.7-78.2,4.1l-89.7-12.4c-14.9-2.1-30,2.2-41.6,11.7l0,0
+         c-60.5,49.3-140.3,67.8-216.4,50.4l0,0c-42-9.6-86-7.2-126.7,7.1L274,169.5c-71,24.9-148.8,21.3-217.2-10L0,133.6V0h1200V133.6z" />
        </svg>
-     </object>
-   </div>
+     </div>
 
-   <div class="u-contain--sm">
-     <h3>Configuration</h3>
-     <code>pizza</code>
-   </div>
-   <div class="charts__transition flipped">
-     <svg x="0px" y="0px" viewBox="0 0 1200 190.2" style="enable-background:new 0 0 1200 190.2;" xml:space="preserve">
-       <path class="transition__shape" d="M1200,133.6L1200,133.6c-23.8-13.8-54.1-7.6-70.6,14.4l-11.7,15.6c-23.3,31.2-70.9,28.3-90.3-5.4l0,0
-       c-30.7-53.5-93.1-80.1-153-65.4l-7.7,1.9c-25.6,6.3-52.1,7.7-78.2,4.1l-89.7-12.4c-14.9-2.1-30,2.2-41.6,11.7l0,0
-       c-60.5,49.3-140.3,67.8-216.4,50.4l0,0c-42-9.6-86-7.2-126.7,7.1L274,169.5c-71,24.9-148.8,21.3-217.2-10L0,133.6V0h1200V133.6z" />
-     </svg>
-   </div>
- </section>
+
+     <div class="u-contain--sm">
+       <div class="config">
+         <h3>Configuration</h3>
+         <div class="u-grid u-push-bottom--lg">
+           <div>
+             <h4>The Base Chart</h4>
+             <p>Brief explanation about the base chart and how each chart is built on top of it.</p>
+           </div>
+           <code>pizza</code>
+         </div>
+
+         <div class="u-grid u-push-bottom--lg">
+           <div>
+             <h4>The Progress Chart</h4>
+             <p>Brief explanation the progress chart and the specific configurations available.</p>
+           </div>
+           <code>pizza</code>
+         </div>
+       </div>
+     </div>
+     <div class="charts__transition flipped">
+        <svg x="0px" y="0px" viewBox="0 0 1200 190.2" style="enable-background:new 0 0 1200 190.2;" xml:space="preserve">
+           <path class="transition__shape" d="M1200,133.6L1200,133.6c-23.8-13.8-54.1-7.6-70.6,14.4l-11.7,15.6c-23.3,31.2-70.9,28.3-90.3-5.4l0,0
+           c-30.7-53.5-93.1-80.1-153-65.4l-7.7,1.9c-25.6,6.3-52.1,7.7-78.2,4.1l-89.7-12.4c-14.9-2.1-30,2.2-41.6,11.7l0,0
+           c-60.5,49.3-140.3,67.8-216.4,50.4l0,0c-42-9.6-86-7.2-126.7,7.1L274,169.5c-71,24.9-148.8,21.3-217.2-10L0,133.6V0h1200V133.6z" />
+       </svg>
+     </div>
+  </section>
 </main>

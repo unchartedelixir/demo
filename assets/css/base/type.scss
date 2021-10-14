@@ -21,6 +21,10 @@ h1,h2.title {
   }
 }
 
+h1.small {
+  @include fluid-type(3.3em, 7em);;
+}
+
 h2.title {
   @include fluid-type(2.5em, 6em);
 }

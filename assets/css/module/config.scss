@@ -1,0 +1,6 @@
+.config {
+  @extend .card;
+  margin: -10em $pad 0;
+  position: relative;
+  z-index: 10;
+}

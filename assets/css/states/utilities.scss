@@ -13,9 +13,21 @@
 
   &--sm {
     margin: 0 auto;
-    max-width: 800px;
+    max-width: 1000px;
   }
 }
+
+// GRID
+.u-grid {
+  display: grid;
+  gap: $pad;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+  &--no-wrap {
+    grid-template-columns: repeat(auto-fit, minmax(1px, 1fr));
+  }
+}
+
 
 //PADDING
 .u-padded--xs {
