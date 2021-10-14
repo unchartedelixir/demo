@@ -257,7 +257,7 @@
       <div class="card u-center">
         <h3 class="u-center u-push-bottom"><%= Uncharted.Chart.title(@progress_chart) %><br /><span class="caption">the progress chart</span></h3>
         <%= UnchartedPhoenix.render(@socket, @progress_chart) %>
-        <%= link "See the Possibilities", to: Routes.progress_path(@socket, :index), class: "button" %>
+        <%# <%= link "See the Possibilities", to: Routes.progress_path(@socket, :index), class: "button" %>
       </div>
     </div>
     <div class="card__grid-2">
@@ -270,6 +270,12 @@
         <%= UnchartedPhoenix.render(@socket, @bar_chart)  %>
       </div>
     </div>
+    <div>
+      <div class="card">
+        <h3 class="u-center u-push-bottom"><%= Uncharted.Chart.title(@scatter_plot) %><br /><span class="caption">the scatter plot</span></h3>
+        <%= UnchartedPhoenix.render(@socket, @scatter_plot)  %>
+      </div>
+    </div>
   </div>
    <div class="charts__transition flipped">
     <svg x="0px" y="0px" viewBox="0 0 1200 190.2" style="enable-background:new 0 0 1200 190.2;" xml:space="preserve">
@@ -277,12 +283,6 @@
       c-30.7-53.5-93.1-80.1-153-65.4l-7.7,1.9c-25.6,6.3-52.1,7.7-78.2,4.1l-89.7-12.4c-14.9-2.1-30,2.2-41.6,11.7l0,0
       c-60.5,49.3-140.3,67.8-216.4,50.4l0,0c-42-9.6-86-7.2-126.7,7.1L274,169.5c-71,24.9-148.8,21.3-217.2-10L0,133.6V0h1200V133.6z" />
     </svg>
-  </div>
-  <div class="card__grid-2">
-    <div class="card">
-      <h3 class="u-center u-push-bottom"><%= Uncharted.Chart.title(@scatter_plot) %><br /><span class="caption">the scatter plot</span></h3>
-      <%= UnchartedPhoenix.render(@socket, @scatter_plot)  %>
-    </div>
   </div>
 </section>
 <footer class="u-push-top--xlg">
