@@ -11,6 +11,47 @@
     <h2 class="u-center u-push-bottom">The Progress Chart</h2>
     <div class="u-grid u-grid--no-wrap">
       <svg class="progress-chart" width="100%" height="100%" viewBox="0 0 42 42" aria-hidden="true">
+        <title id="progressChartTitle">Progress chart visualization</title>
+
+        <g>
+          <circle class="chart-center" cx="21" cy="21" r="16" fill="transparent"></circle>
+          <circle class="chart-ring" cx="21" cy="21" r="16" fill="transparent" stroke="url(#gray_gradient)" stroke-width="5"></circle>
+
+          <svg class="chart-label" width="100%" height="100%" y="0" x="0">
+            <text class="label-percentage" x="50%" y="50%" fill="url(#rose_gradient)" font-size="10px" font-weight="100" font-family="sans-serif" alignment-baseline="middle" text-anchor="middle">92%</text>
+            <text class="label" x="50%" y="62%" fill="#ffffff" font-size="3px" font-weight="300" font-family="sans-serif" alignment-baseline="middle" text-anchor="middle">Charged</text>
+            <text class="label" x="50%" y="70%" fill="#C6426E" font-size="2px" font-weight="300" font-family="sans-serif" alignment-baseline="middle" text-anchor="middle">(% of Total)</text>
+          </svg>
+
+          <circle
+          class="chart-data"
+          cx="21"
+          cy="21"
+          r="16"
+          fill="transparent"
+          stroke="url(#rose_gradient)"
+          style="transition: all 0.5s ease"
+          stroke-width="5"
+          stroke-dasharray="92 <%= 100 - 92 %>"
+          stroke-dashoffset="25"
+          stroke-linecap="round">
+          <animate attributeName="stroke-dasharray" values=" 0 100;92 <%= 100 - 92 %>" dur="1s" repeatCount="freeze" />
+          </circle>
+        </g>
+
+        <defs>
+          <linearGradient id="gray_gradient">
+            <stop stop-color="rgba(255, 255, 255, .3)" offset="0%"></stop>
+            <stop stop-color="rgba(255, 255, 255, 0)" offset="100%"></stop>
+          </linearGradient>
+          <linearGradient id="rose_gradient">
+            <stop stop-color="#C6426E" offset="0%"></stop>
+            <stop stop-color="#642B73" offset="100%"></stop>
+          </linearGradient>
+        </defs>
+      </svg>
+
+      <svg class="progress-chart" width="100%" height="100%" viewBox="0 0 42 42" aria-hidden="true">
         <title id="progressChartTitle">Progress chart visualizing</title>
 
         <g>
@@ -19,7 +60,7 @@
 
           <svg class="chart-label" width="100%" height="100%" y="0" x="0">
             <text class="label-percentage" x="50%" y="50%" fill="url(#blue_gradient)" font-size="10px" font-weight="100" font-family="sans-serif" alignment-baseline="middle" text-anchor="middle">75%</text>
-            <text class="label" x="50%" y="62%" fill="#ffffff" font-size="3px" font-weight="300" font-family="sans-serif" alignment-baseline="middle" text-anchor="middle">Participation</text>
+            <text class="label" x="50%" y="62%" fill="#ffffff" font-size="3px" font-weight="300" font-family="sans-serif" alignment-baseline="middle" text-anchor="middle">Consumed</text>
             <text class="label" x="50%" y="70%" fill="#36D1DC" font-size="2px" font-weight="300" font-family="sans-serif" alignment-baseline="middle" text-anchor="middle">(% of Total)</text>
           </svg>
 
@@ -88,47 +129,6 @@
           <linearGradient id="red_gradient">
             <stop stop-color="#FF9486" offset="0%"></stop>
             <stop stop-color="#FF1379" offset="100%"></stop>
-          </linearGradient>
-        </defs>
-      </svg>
-
-      <svg class="progress-chart" width="100%" height="100%" viewBox="0 0 42 42" aria-hidden="true">
-        <title id="progressChartTitle">Progress chart visualization</title>
-
-        <g>
-          <circle class="chart-center" cx="21" cy="21" r="16" fill="transparent"></circle>
-          <circle class="chart-ring" cx="21" cy="21" r="16" fill="transparent" stroke="url(#gray_gradient)" stroke-width="5"></circle>
-
-          <svg class="chart-label" width="100%" height="100%" y="0" x="0">
-            <text class="label-percentage" x="50%" y="50%" fill="url(#rose_gradient)" font-size="10px" font-weight="100" font-family="sans-serif" alignment-baseline="middle" text-anchor="middle">92%</text>
-            <text class="label" x="50%" y="62%" fill="#ffffff" font-size="3px" font-weight="300" font-family="sans-serif" alignment-baseline="middle" text-anchor="middle">Participation</text>
-            <text class="label" x="50%" y="70%" fill="#C6426E" font-size="2px" font-weight="300" font-family="sans-serif" alignment-baseline="middle" text-anchor="middle">(% of Total)</text>
-          </svg>
-
-          <circle
-          class="chart-data"
-          cx="21"
-          cy="21"
-          r="16"
-          fill="transparent"
-          stroke="url(#rose_gradient)"
-          style="transition: all 0.5s ease"
-          stroke-width="5"
-          stroke-dasharray="92 <%= 100 - 92 %>"
-          stroke-dashoffset="25"
-          stroke-linecap="round">
-          <animate attributeName="stroke-dasharray" values=" 0 100;92 <%= 100 - 92 %>" dur="1s" repeatCount="freeze" />
-          </circle>
-        </g>
-
-        <defs>
-          <linearGradient id="gray_gradient">
-            <stop stop-color="rgba(255, 255, 255, .3)" offset="0%"></stop>
-            <stop stop-color="rgba(255, 255, 255, 0)" offset="100%"></stop>
-          </linearGradient>
-          <linearGradient id="rose_gradient">
-            <stop stop-color="#C6426E" offset="0%"></stop>
-            <stop stop-color="#642B73" offset="100%"></stop>
           </linearGradient>
         </defs>
       </svg>
