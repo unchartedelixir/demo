@@ -22,6 +22,7 @@ defmodule DemoWeb.PageLive do
 
     colors = %{
       blue: "#6bdee4",
+      line_blue: "#ddeff9",
       rose_gradient: %Gradient{
         start_color: "#642B73",
         stop_color: "#C6426E"
@@ -43,7 +44,8 @@ defmodule DemoWeb.PageLive do
         axes: %BaseAxes{
           magnitude_axis: %MagnitudeAxis{
             max: 10_000,
-            min: 0
+            min: 0,
+            line_color: :line_blue
           }
         },
         data: Cincy.get()
@@ -99,38 +101,45 @@ defmodule DemoWeb.PageLive do
         axes: %XYAxes{
           x: %MagnitudeAxis{
             max: 700,
-            min: 0
+            min: 0,
+            line_color: :line_blue
           },
           y: %MagnitudeAxis{
             max: 2500,
-            min: 0
+            min: 0,
+            line_color: :line_blue
           }
         },
         data: [
           %BaseDatum{
             name: "Point 1",
-            fill_color: :blue_gradient,
-            values: [70, 500]
+            fill_color: :red_gradient,
+            values: [0, 500]
           },
           %BaseDatum{
             name: "Point 2",
-            fill_color: :blue_gradient,
-            values: [150, 1000]
+            fill_color: :red_gradient,
+            values: [140, 1000]
           },
           %BaseDatum{
             name: "Point 3",
-            fill_color: :blue_gradient,
-            values: [350, 1600]
+            fill_color: :red_gradient,
+            values: [280, 1600]
           },
           %BaseDatum{
             name: "Point 4",
-            fill_color: :blue_gradient,
-            values: [450, 1500]
+            fill_color: :red_gradient,
+            values: [420, 1500]
           },
           %BaseDatum{
             name: "Point 5",
-            fill_color: :blue_gradient,
-            values: [550, 2000]
+            fill_color: :red_gradient,
+            values: [560, 2000]
+          },
+          %BaseDatum{
+            name: "Point 6",
+            fill_color: :red_gradient,
+            values: [700, 2400]
           }
         ]
       }
@@ -145,11 +154,13 @@ defmodule DemoWeb.PageLive do
         axes: %XYAxes{
           x: %MagnitudeAxis{
             max: 5,
-            min: 0
+            min: 0,
+            line_color: :line_blue
           },
           y: %MagnitudeAxis{
             max: 2500,
-            min: 0
+            min: 0,
+            line_color: :line_blue
           }
         },
         data: [
@@ -160,12 +171,12 @@ defmodule DemoWeb.PageLive do
           },
           %BaseDatum{
             name: "Point 2",
-            fill_color: :red_gradient,
+            fill_color: :blue_gradient,
             values: [1.2, 1800]
           },
           %BaseDatum{
             name: "Point 3",
-            fill_color: :red_gradient,
+            fill_color: :rose_gradient,
             values: [1.9, 2000, 30]
           },
           %BaseDatum{
@@ -175,12 +186,12 @@ defmodule DemoWeb.PageLive do
           },
           %BaseDatum{
             name: "Point 5",
-            fill_color: :red_gradient,
+            fill_color: :blue_gradient,
             values: [3.5, 1800, 60]
           },
           %BaseDatum{
             name: "Point 6",
-            fill_color: :red_gradient,
+            fill_color: :rose_gradient,
             values: [4.2, 1800, 50]
           }
         ]
@@ -235,17 +246,18 @@ defmodule DemoWeb.PageLive do
             start_color: "#FF9486",
             stop_color: "#FF1379"
           },
-          gray: "#e2e2e2"
+          gray: "#f1f5fc",
+          blue: "#02215a"
         },
         dataset: %ProgressChart.Dataset{
-          background_stroke_color: :gray,
+          background_stroke_color: :blue,
           label: "Proc Memory",
           secondary_label: "(% Of Total)",
           to_value: memory.total,
           current_value: memory.process,
           percentage_text_fill_color: :blue_gradient,
-          percentage_fill_color: :rose_gradient,
-          label_fill_color: :rose_gradient
+          percentage_fill_color: :red_gradient,
+          label_fill_color: :blue
         }
     }
   end
@@ -259,6 +271,7 @@ defmodule DemoWeb.PageLive do
       title: "Live Beam Memory Stats",
       colors: %{
         blue: "#36D1DC",
+        line_blue: "#ddeff9",
         rosy_gradient: %Gradient{
           start_color: "#642B73",
           stop_color: "#C6426E"
@@ -268,7 +281,8 @@ defmodule DemoWeb.PageLive do
         axes: %BaseAxes{
           magnitude_axis: %MagnitudeAxis{
             max: MemoryChart.chart_max(memory_data),
-            min: 0
+            min: 0,
+            line_color: :line_blue
           }
         },
         data: data

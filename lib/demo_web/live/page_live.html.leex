@@ -270,7 +270,7 @@
         <%= UnchartedPhoenix.render(@socket, @bar_chart)  %>
       </div>
     </div>
-    <div>
+    <div class="card__grid-2">
       <div class="card">
         <h3 class="u-center u-push-bottom"><%= Uncharted.Chart.title(@scatter_plot) %><br /><span class="caption">the scatter plot</span></h3>
         <%= UnchartedPhoenix.render(@socket, @scatter_plot)  %>
@@ -285,7 +285,3 @@
     </svg>
   </div>
 </section>
-<footer class="u-push-top--xlg">
-  <p>Uncharted is powered by <a href="https://elixir-lang.org/" target="_blank">Elixir</a>, created by <a href="https://teamgaslight.com" target="_blank">teamgaslight</a></p>
-  <p> open sourced on <a href="https://github.com/unchartedelixir" target="_blank">GitHub</a></p>
-</footer>

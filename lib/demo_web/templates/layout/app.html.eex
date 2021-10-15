@@ -2,4 +2,8 @@
   <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
   <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
   <%= @inner_content %>
+  <footer class="u-push-top--xlg">
+    <p>Uncharted is powered by <a href="https://elixir-lang.org/" target="_blank">Elixir</a>, created by <a href="https://teamgaslight.com" target="_blank">teamgaslight</a></p>
+    <p> open sourced on <a href="https://github.com/unchartedelixir" target="_blank">GitHub</a></p>
+  </footer>
 </main>
