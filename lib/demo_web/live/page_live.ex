@@ -23,6 +23,10 @@ defmodule DemoWeb.PageLive do
     colors = %{
       blue: "#6bdee4",
       line_blue: "#ddeff9",
+      dark_gradient: %Gradient{
+        start_color: "#02215a",
+        stop_color: "#053b9e"
+      },
       rose_gradient: %Gradient{
         start_color: "#642B73",
         stop_color: "#C6426E"
@@ -113,32 +117,32 @@ defmodule DemoWeb.PageLive do
         data: [
           %BaseDatum{
             name: "Point 1",
-            fill_color: :red_gradient,
+            fill_color: :dark_gradient,
             values: [0, 500]
           },
           %BaseDatum{
             name: "Point 2",
-            fill_color: :red_gradient,
+            fill_color: :dark_gradient,
             values: [140, 1000]
           },
           %BaseDatum{
             name: "Point 3",
-            fill_color: :red_gradient,
+            fill_color: :dark_gradient,
             values: [280, 1600]
           },
           %BaseDatum{
             name: "Point 4",
-            fill_color: :red_gradient,
+            fill_color: :dark_gradient,
             values: [420, 1500]
           },
           %BaseDatum{
             name: "Point 5",
-            fill_color: :red_gradient,
+            fill_color: :dark_gradient,
             values: [560, 2000]
           },
           %BaseDatum{
             name: "Point 6",
-            fill_color: :red_gradient,
+            fill_color: :dark_gradient,
             values: [700, 2400]
           }
         ]
@@ -234,9 +238,9 @@ defmodule DemoWeb.PageLive do
       chart
       | title: "Process Memory / Total",
         colors: %{
-          rose_gradient: %Gradient{
-            start_color: "#642B73",
-            stop_color: "#C6426E"
+          dark_gradient: %Gradient{
+            start_color: "#02215a",
+            stop_color: "#053b9e"
           },
           blue_gradient: %Gradient{
             start_color: "#36D1DC",
@@ -246,17 +250,18 @@ defmodule DemoWeb.PageLive do
             start_color: "#FF9486",
             stop_color: "#FF1379"
           },
-          gray: "#f1f5fc",
+          gray: "#ddeff9",
           blue: "#02215a"
         },
         dataset: %ProgressChart.Dataset{
-          background_stroke_color: :blue,
+          background_stroke_color: :gray,
+          doughnut_width: "3px",
           label: "Proc Memory",
           secondary_label: "(% Of Total)",
           to_value: memory.total,
           current_value: memory.process,
           percentage_text_fill_color: :blue_gradient,
-          percentage_fill_color: :red_gradient,
+          percentage_fill_color: :dark_gradient,
           label_fill_color: :blue
         }
     }
