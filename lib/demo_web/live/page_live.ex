@@ -199,13 +199,14 @@ defmodule DemoWeb.PageLive do
           %Section{fill_color: :red_gradient, label: "July", index: 2},
           %Section{fill_color: :blue_gradient, label: "May", index: 0}
         ],
-        data: ~w(Landen Oakley Downtown Florence Erlanger)
-        |> Enum.map(fn neighborhood ->
-          %BaseDatum{
-            name: neighborhood,
-            values: [:rand.uniform() * 4_000, :rand.uniform() * 3_000, :rand.uniform() * 3_000]
-          }
-        end)
+        data:
+          ~w(Landen Oakley Downtown Florence Erlanger)
+          |> Enum.map(fn neighborhood ->
+            %BaseDatum{
+              name: neighborhood,
+              values: [:rand.uniform() * 4_000, :rand.uniform() * 3_000, :rand.uniform() * 3_000]
+            }
+          end)
       }
     }
 
