@@ -276,6 +276,10 @@
         <%= UnchartedPhoenix.render(@socket, @scatter_plot)  %>
       </div>
     </div>
+    <div class="card">
+      <h3 class="u-center u-push-bottom"><%= Uncharted.Chart.title(@stacked_column_chart) %><br /><span class="caption">the stacked column chart</span></h3>
+      <%= UnchartedPhoenix.render(@socket, @stacked_column_chart)  %>
+    </div>
   </div>
    <div class="charts__transition flipped">
     <svg x="0px" y="0px" viewBox="0 0 1200 190.2" style="enable-background:new 0 0 1200 190.2;" xml:space="preserve">
