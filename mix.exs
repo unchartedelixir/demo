@@ -70,8 +70,8 @@ defmodule Demo.MixProject do
   # This refers to dependencies only needed for local development purposes.
   defp uncharted_deps(local: true) do
     [
-      {:uncharted, only: [:dev, :test], path: "../uncharted/uncharted"},
-      {:uncharted_phoenix, only: [:dev, :test], path: "../uncharted/uncharted_phoenix"}
+      {:uncharted, only: [:dev, :test], path: "#{@uncharted_path}/uncharted"},
+      {:uncharted_phoenix, only: [:dev, :test], path: "#{@uncharted_path}/uncharted_phoenix"}
     ]
   end
 
