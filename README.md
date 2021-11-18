@@ -46,3 +46,5 @@ $ mix test
 $ mix format
 $ mix credo--strict
  ```
+
+Our current `mix.exs` setup in this demo assumes that you will have Uncharted cloned into the same directory where you have this demo cloned. If necessary, you can change the paths to your local versions of Uncharted and Uncharted Phoenix by updating the `@uncharted_path` instance variable. Just be sure not to commit this change.
