@@ -16,8 +16,6 @@ For more information about the LiveView adaptation seen in this demo, please vis
 - The Line Chart
 - The Bar Chart
 
-![Chart Examples Image](/assets/static/images/uncharted.jpg?raw=true "Bar Chart")
-
 To start the demo Phoenix server:
 
   * Install dependencies with `mix deps.get`
